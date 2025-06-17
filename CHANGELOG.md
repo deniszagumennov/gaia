@@ -16,6 +16,10 @@
 ### BUG-FIXES
 - Fix the `testnet` command to use the proper gaia binary ([\#3783](https://github.com/cosmos/gaia/pull/3783))
 
+### Dependencies
+
+- Bump [github.com/cometbft/cometbft](https://github.com/cometbft/cometbft) from 0.38.17 to 1.0.1 ([#10](https://github.com/deniszagumennov/gaia/pull/10))
+
 ## v24.0.0
 
 *May 30, 2025*
