@@ -16,6 +16,10 @@
 ### BUG-FIXES
 - Fix the `testnet` command to use the proper gaia binary ([\#3783](https://github.com/cosmos/gaia/pull/3783))
 
+### Dependencies
+
+- Bump [github.com/vektra/mockery/v2](https://github.com/vektra/mockery) from 2.53.3 to 2.53.4 ([#4](https://github.com/deniszagumennov/gaia/pull/4))
+
 ## v24.0.0
 
 *May 30, 2025*
