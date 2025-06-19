@@ -84,10 +84,10 @@ func NewAnteHandler(opts HandlerOptions) (sdk.AnteHandler, error) {
 		ante.NewConsumeGasForTxSizeDecorator(opts.AccountKeeper),
 		NewGovVoteDecorator(opts.Codec, opts.StakingKeeper),
 		NewGovExpeditedProposalsDecorator(opts.Codec),
-		ante.NewSetPubKeyDecorator(opts.AccountKeeper), // SetPubKeyDecorator must be called before all signature verification decorators
-		ante.NewValidateSigCountDecorator(opts.AccountKeeper),
-		ante.NewSigGasConsumeDecorator(opts.AccountKeeper, sigGasConsumer),
-		ante.NewSigVerificationDecorator(opts.AccountKeeper, opts.SignModeHandler),
+		//ante.NewSetPubKeyDecorator(opts.AccountKeeper), // SetPubKeyDecorator must be called before all signature verification decorators
+		//ante.NewValidateSigCountDecorator(opts.AccountKeeper),
+		//ante.NewSigGasConsumeDecorator(opts.AccountKeeper, sigGasConsumer),
+		//ante.NewSigVerificationDecorator(opts.AccountKeeper, opts.SignModeHandler),
 		ante.NewIncrementSequenceDecorator(opts.AccountKeeper),
 		ibcante.NewRedundantRelayDecorator(opts.IBCkeeper),
 	}
