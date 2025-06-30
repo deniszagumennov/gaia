@@ -417,8 +417,6 @@ github.com/coinbase/rosetta-sdk-go v0.7.9 h1:lqllBjMnazTjIqYrOGv8h8jxjg9+hJazIGZ
 github.com/coinbase/rosetta-sdk-go v0.7.9/go.mod h1:0/knutI7XGVqXmmH4OQD8OckFrbQ8yMsUZTG7FXCR2M=
 github.com/cometbft/cometbft v0.38.17 h1:FkrQNbAjiFqXydeAO81FUzriL4Bz0abYxN/eOHrQGOk=
 github.com/cometbft/cometbft v0.38.17/go.mod h1:5l0SkgeLRXi6bBfQuevXjKqML1jjfJJlvI1Ulp02/o4=
-github.com/cometbft/cometbft-db v0.14.1 h1:SxoamPghqICBAIcGpleHbmoPqy+crij/++eZz3DlerQ=
-github.com/cometbft/cometbft-db v0.14.1/go.mod h1:KHP1YghilyGV/xjD5DP3+2hyigWx0WTp9X+0Gnx0RxQ=
 github.com/consensys/bavard v0.1.8-0.20210406032232-f3452dc9b572/go.mod h1:Bpd0/3mZuaj6Sj+PqrmIquiOKy397AKGThQPaGzNXAQ=
 github.com/consensys/bavard v0.1.8-0.20210915155054-088da2f7f54a/go.mod h1:9ItSMtA/dXMAiL7BG6bqW2m3NdSEObYWoH223nGHukI=
 github.com/consensys/bavard v0.1.22 h1:Uw2CGvbXSZWhqK59X0VG/zOjpTFuOMcPLStrp1ihI0A=
@@ -512,6 +510,8 @@ github.com/decred/dcrd/dcrec/secp256k1/v4 v4.3.0/go.mod h1:v57UDF4pDQJcEfFUCRop3
 github.com/decred/dcrd/lru v1.0.0/go.mod h1:mxKOwFd7lFjN2GZYsiz/ecgqR6kkYAl+0pz0tEMk218=
 github.com/deepmap/oapi-codegen v1.6.0/go.mod h1:ryDa9AgbELGeB+YEXE1dR53yAjHwFvE9iAUlWl9Al3M=
 github.com/deepmap/oapi-codegen v1.8.2/go.mod h1:YLgSKSDv/bZQB7N4ws6luhozi3cEdRktEqrX88CvjIw=
+github.com/deniszagumennov/cometbft-db v0.14.1-notcompressedleveldb h1:firKMSHKPQMdt2lCcvMkh2YxPBzZsc8IM97BnxygSp0=
+github.com/deniszagumennov/cometbft-db v0.14.1-notcompressedleveldb/go.mod h1:KHP1YghilyGV/xjD5DP3+2hyigWx0WTp9X+0Gnx0RxQ=
 github.com/desertbit/timer v0.0.0-20180107155436-c41aec40b27f/go.mod h1:xH/i4TFMt8koVQZ6WFms69WAsDWr2XsYL3Hkl7jkoLE=
 github.com/desertbit/timer v1.0.1 h1:yRpYNn5Vaaj6QXecdLMPMJsW81JLiI1eokUft5nBmeo=
 github.com/desertbit/timer v1.0.1/go.mod h1:htRrYeY5V/t4iu1xCJ5XsQvp4xve8QulXXctAzxqcwE=

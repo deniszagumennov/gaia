@@ -265,6 +265,8 @@ replace (
 	// Use cosmos keyring
 	github.com/99designs/keyring => github.com/cosmos/keyring v1.2.0
 
+	github.com/cometbft/cometbft-db => github.com/deniszagumennov/cometbft-db v0.14.1-notcompressedleveldb
+
 	// Use special SDK v0.50.x release with support for both ICS and LSM
 	github.com/cosmos/cosmos-sdk => github.com/cosmos/cosmos-sdk v0.50.11-lsm
 
