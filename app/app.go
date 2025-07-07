@@ -10,6 +10,7 @@ import (
 	"github.com/gorilla/mux"
 	"github.com/rakyll/statik/fs"
 	feemarketkeeper "github.com/skip-mev/feemarket/x/feemarket/keeper"
+	feemarkettypes "github.com/skip-mev/feemarket/x/feemarket/types"
 	"github.com/spf13/cast"
 
 	abci "github.com/cometbft/cometbft/abci/types"
@@ -600,6 +601,45 @@ func (ao EmptyAppOptions) Get(_ string) interface{} {
 	return nil
 }
 
+func fallbackFeeMarketParams(p feemarkettypes.Params) (feemarkettypes.Params, error) {
+	if p.Alpha.IsNil() {
+		p.Alpha = math.LegacyZeroDec()
+	}
+	if p.Beta.IsNil() {
+		p.Beta = math.LegacyOneDec()
+	}
+	if p.Gamma.IsNil() {
+		p.Gamma = math.LegacyZeroDec()
+	}
+	if p.Delta.IsNil() {
+		p.Delta = math.LegacyZeroDec()
+	}
+	if p.MinBaseGasPrice.IsNil() || p.MinBaseGasPrice.IsZero() {
+		p.MinBaseGasPrice = math.LegacyNewDecWithPrec(5, 3) // 0.005
+	}
+	if p.MinLearningRate.IsNil() {
+		p.MinLearningRate = math.LegacyNewDecWithPrec(125, 3) // 0.125
+	}
+	if p.MaxLearningRate.IsNil() {
+		p.MaxLearningRate = math.LegacyNewDecWithPrec(125, 3) // 0.125
+	}
+	if p.MaxBlockUtilization == 0 {
+		p.MaxBlockUtilization = 75000000
+	}
+	if p.Window == 0 {
+		p.Window = 1
+	}
+	if p.FeeDenom == "" {
+		p.FeeDenom = "uatom"
+	}
+
+	if err := p.ValidateBasic(); err != nil {
+		return p, fmt.Errorf("fee market params fallback validation failed: %w", err)
+	}
+
+	return p, nil
+}
+
 // minTxFeesChecker will be executed only if the feemarket module is disabled.
 // In this case, the auth module's DeductFeeDecorator is executed, and
 // we use the minTxFeesChecker to enforce the minimum transaction fees.
@@ -610,26 +650,22 @@ func minTxFeesChecker(ctx sdk.Context, tx sdk.Tx, feemarketKp feemarketkeeper.Ke
 		return nil, 0, errorsmod.Wrap(sdkerrors.ErrTxDecode, "Tx must be a FeeTx")
 	}
 
-	// To keep the gentxs with zero fees, we need to skip the validation in the first block
-	if ctx.BlockHeight() == 0 {
-		return feeTx.GetFee(), 0, nil
-	}
-
 	feeMarketParams, err := feemarketKp.GetParams(ctx)
 	if err != nil {
 		return nil, 0, err
 	}
 
-	fmt.Printf("MinBaseGasPrice: %v, Gas: %d\n", feeMarketParams.MinBaseGasPrice, feeTx.GetGas())
-
-	if feeMarketParams.MinBaseGasPrice.IsZero() {
-		return nil, 0, errorsmod.Wrap(sdkerrors.ErrLogic, "MinBaseGasPrice is zero")
+	feeMarketParams, err = fallbackFeeMarketParams(feeMarketParams)
+	if err != nil {
+		return nil, 0, err
 	}
+
+	gas := feeTx.GetGas()
 
 	feeRequired := sdk.NewCoins(
 		sdk.NewCoin(
 			feeMarketParams.FeeDenom,
-			feeMarketParams.MinBaseGasPrice.MulInt(math.NewIntFromUint64(feeTx.GetGas())).Ceil().RoundInt()))
+			feeMarketParams.MinBaseGasPrice.MulInt(math.NewIntFromUint64(gas)).Ceil().RoundInt()))
 
 	feeCoins := feeTx.GetFee()
 	if len(feeCoins) != 1 {
