@@ -16,6 +16,10 @@
 ### BUG-FIXES
 - Fix the `testnet` command to use the proper gaia binary ([\#3783](https://github.com/cosmos/gaia/pull/3783))
 
+### Dependencies
+
+- Bump [docker/login-action](https://github.com/docker/login-action) from 3.4.0 to 3.5.0 ([#14](https://github.com/deniszagumennov/gaia-fork/pull/14))
+
 ## v24.0.0
 
 *May 30, 2025*
