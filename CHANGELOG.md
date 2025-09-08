@@ -16,6 +16,10 @@
 ### BUG-FIXES
 - Fix the `testnet` command to use the proper gaia binary ([\#3783](https://github.com/cosmos/gaia/pull/3783))
 
+### Dependencies
+
+- Bump [actions/stale](https://github.com/actions/stale) from 9.1.0 to 10.0.0 ([#17](https://github.com/deniszagumennov/gaia-fork/pull/17))
+
 ## v24.0.0
 
 *May 30, 2025*
