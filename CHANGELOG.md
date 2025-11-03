@@ -16,6 +16,10 @@
 ### BUG-FIXES
 - Fix the `testnet` command to use the proper gaia binary ([\#3783](https://github.com/cosmos/gaia/pull/3783))
 
+### Dependencies
+
+- Bump [docker/metadata-action](https://github.com/docker/metadata-action) from 5.7.0 to 5.8.0 ([#13](https://github.com/deniszagumennov/gaia-fork/pull/13))
+
 ## v24.0.0
 
 *May 30, 2025*
