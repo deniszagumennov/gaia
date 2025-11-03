@@ -20,7 +20,7 @@ require (
 	cosmossdk.io/x/upgrade v0.2.0
 	github.com/CosmWasm/wasmd v0.60.1
 	github.com/CosmWasm/wasmvm/v2 v2.2.4
-	github.com/cometbft/cometbft v0.38.17
+	github.com/cometbft/cometbft v1.0.1
 	github.com/cometbft/cometbft-db v1.0.4
 	github.com/cosmos/cosmos-db v1.1.1
 	github.com/cosmos/cosmos-proto v1.0.0-beta.5
@@ -53,6 +53,7 @@ require (
 
 require (
 	cosmossdk.io/schema v1.1.0 // indirect
+	github.com/cometbft/cometbft/api v1.0.0 // indirect
 	github.com/go-jose/go-jose/v4 v4.0.5 // indirect
 	github.com/mdp/qrterminal/v3 v3.2.1 // indirect
 	github.com/moby/sys/user v0.3.0 // indirect
@@ -136,7 +137,6 @@ require (
 	github.com/felixge/httpsnoop v1.0.4 // indirect
 	github.com/fsnotify/fsnotify v1.9.0 // indirect
 	github.com/getsentry/sentry-go v0.33.0 // indirect
-	github.com/go-kit/kit v0.13.0 // indirect
 	github.com/go-kit/log v0.2.1 // indirect
 	github.com/go-logfmt/logfmt v0.6.0 // indirect
 	github.com/go-logr/logr v1.4.2 // indirect
