@@ -16,6 +16,10 @@
 ### BUG-FIXES
 - Fix the `testnet` command to use the proper gaia binary ([\#3783](https://github.com/cosmos/gaia/pull/3783))
 
+### Dependencies
+
+- Bump [peter-evans/repository-dispatch](https://github.com/peter-evans/repository-dispatch) from 3 to 4 ([#20](https://github.com/deniszagumennov/gaia-fork/pull/20))
+
 ## v24.0.0
 
 *May 30, 2025*
