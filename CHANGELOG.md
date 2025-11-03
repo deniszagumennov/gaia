@@ -16,6 +16,10 @@
 ### BUG-FIXES
 - Fix the `testnet` command to use the proper gaia binary ([\#3783](https://github.com/cosmos/gaia/pull/3783))
 
+### Dependencies
+
+- Bump [actions/setup-go](https://github.com/actions/setup-go) from 5 to 6 ([#18](https://github.com/deniszagumennov/gaia-fork/pull/18))
+
 ## v24.0.0
 
 *May 30, 2025*
